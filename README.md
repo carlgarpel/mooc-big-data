@@ -44,5 +44,55 @@ lo que genera un fichero json con 108.427 documentos (se suprime el registro de 
 Importo el fichero a MongoDB
 mongoimport --db convive --file avisos.json
 
+Para prácticas se pide volver a generar los csv a partir de la base de datos MongoDB.
+Los ficheros csv en al carpeta csv de este repositorio.
+
+Mediante una utilidad de MongoDB:
+
+mongoexport --db convive --collection resueltos2017 --type=csv --out resueltos2017.csv
+
+Mediante Python
+    En la carpeta python se encuentra el script exportcsv.py
+
+Fase de análisis.
+
+En el proyecto CONVIVE se realizarán dos acciones con los datos:
+1. Se analizarán los datos existentes del sistema AVISA para obtener información sintetizada de
+los incidentes reportados. Para ello debe tenerse en cuenta que el fichero con los datos puede
+estar repartido entre varias máquinas y que se debe utilizar un modelo de programación que
+facilite el acceso a todos esos datos sin cargar la máquina en la que se ejecute.
+2. Se visualizarán los datos del sistema AVISA para que sean más fácilmente entendibles por los
+destinatarios finales. Las decisiones finales sobre las acciones a tomar las llevarán a cabo
+personas con distintas capacidades de abstracción y síntesis. Para facilitar esas decisiones se
+mostrarán los datos mediante modelos visuales que permitan una mejor comprensión de
+éstos.
+
+Instalo hadoop mapreduce para realizar las prácticas de ejecución de las tareas de mapeo y
+reducción de manera distruibuida. Los script están en este repositorio: en la carpeta python.
+    mapper.Py --> Genera un fichero csv con estructura clave valor. En este caso: Distrito
+    y TIPO_INCIDENCIA
+    reducer.Py--> realiza un sumatorio de las claves agrupadas.
+    En este ejercicio lo que se obtiene es información resumida d número de avisos por distrito 
+    en la ciudad de Madrid.
+
+
+Por último, se genera una representación gráfica de esta información con ayuda de Python y las librería
+Bokeh.
+
+El script se incluye en este repositorio, y su nombre es visualizador.Py.
+
+El resultado final puede verse en el fichero visualizador.html (recordar que para ver este fichero hace
+falta instalarlo en un servidor.)
+
+
+
+
+
+
+
+
+
+
+
 
 
