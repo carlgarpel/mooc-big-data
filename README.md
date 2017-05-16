@@ -39,7 +39,7 @@ https://www.npmjs.com/package/csvtojson
 npm i --save csvtojson -g
 csvtojson "avisa-avisos ciudadanos mensuales resueltos 201703.csv" 
 --delimiter=; >resueltos2017.json
-lo que genera un fichero json con 108.428 documentos.
+lo que genera un fichero json con 108.427 documentos (se suprime el registro de cabecera).
 
 Importo el fichero a MongoDB
 mongoimport --db convive --file avisos.json
